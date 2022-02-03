@@ -1,6 +1,6 @@
-# Sanity Content Studio
+# Sanity Content Studio for Kejahunt
 
-[Content studio for Kejahunt powered by](https://www.sanity.io)
+[Backend for Kejahunt powered by](https://www.sanity.io)
 
 ## Commands
 
