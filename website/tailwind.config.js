@@ -2,6 +2,20 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   theme: {
     extend: {
+      colors: {
+        fire: {
+          100: '#F08F2D',
+          200: '#FE5F55',
+          300: '#E63462',
+          400: '#18203A',
+          500: '#F4FAFF',
+          600: '#EBF6FF',
+          700: '#D6EDFF',
+        },
+      },
+      backgroundColor: {
+        darkOverlay: 'rgba(24, 32 ,58 ,0.7)',
+      },
       fontFamily: {
         sans: ['Outfit', 'sans-serif'],
       },
@@ -39,17 +53,6 @@ module.exports = {
         210: '210px',
         350: '350px',
         620: '620px',
-      },
-      textColor: {
-        lightGray: '#EEF9FC',
-        primary: '#EDF2F4',
-        secColor: '#EBEBFF',
-        navColor: '#D6D6FF',
-      },
-      backgroundColor: {
-        mainColor: '#D6D6FF',
-        secondaryColor: '#EBEBFF',
-        blackOverlay: 'rgba(31, 35 ,51 ,0.7)',
       },
       keyframes: {
         'slide-in': {
@@ -92,5 +95,5 @@ module.exports = {
     // backgroundColor: ['active'],
     extend: {},
   },
-  plugins: [],
+  plugins: [require(`tailwind-scrollbar-hide`)],
 };
