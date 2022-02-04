@@ -4,16 +4,16 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/images/kh.png';
 
 const isNotActiveStyle =
-  'flex items-center px-5 gap-3 text-fire-400 hover:text-fire-100 transition-all duration-200 ease-in-out capitalize';
+  'flex items-center px-5 gap-2 text-ash-700 hover:text-ash-400 transition-all duration-200 ease-in-out capitalize';
 const isActiveStyle =
-  'flex items-center px-5 gap-3 text-fire-200 font-bold text-xl border-r-4 border-fire-200 transition-all duration-200 ease-in-out capitalize';
+  'flex items-center px-5 gap-2 text-ash-400 font-medium border-r-2 border-ash-400 transition-all duration-200 ease-in-out capitalize';
 
 const categories = [
-  { name: 'Nairobi' },
-  { name: 'Kiambu' },
-  { name: 'Kajiado' },
-  { name: 'Muranga' },
-  { name: 'Other' },
+  { name: 'nairobi' },
+  { name: 'kiambu' },
+  { name: 'kajiado' },
+  { name: 'muranga' },
+  { name: 'other' },
 ];
 
 const Sidebar = ({ user, closeToggle }) => {
@@ -21,7 +21,7 @@ const Sidebar = ({ user, closeToggle }) => {
     if (closeToggle) closeToggle(false);
   };
   return (
-    <div className='flex flex-col justify-between bg-white h-full overflow-y-scroll min-w-210 scrollbar-hide'>
+    <div className='flex flex-col justify-between bg-ash-100 h-full overflow-y-scroll min-w-210 scrollbar-hide'>
       <div className='flex flex-col'>
         <Link
           to='/'
@@ -40,8 +40,8 @@ const Sidebar = ({ user, closeToggle }) => {
           >
             Home
           </NavLink>
-          <h3 className='mt-2 px-5 text-base 2xl:text-xl'>
-            Discover Categories
+          <h3 className='text-ash-400 mt-2 px-5 text-base 2xl:text-xl'>
+            Discover Locations
           </h3>
           {categories.slice(0, categories.length - 1).map((category) => (
             <NavLink
@@ -61,7 +61,7 @@ const Sidebar = ({ user, closeToggle }) => {
         <Link
           onClick={handleCloseSidebar}
           to={`profile/${user._id}`}
-          className='flex my-5 mb-3 gap-2 p-2 items-center text-fire-400 bg-fire-100 rounded-lg shadow-lg mx-3'
+          className='flex my-5 mb-3 gap-2 p-2 items-center text-ash-200 bg-ash-400 rounded-lg shadow-lg mx-3'
         >
           <img
             className='w-10 h-10 rounded-full'

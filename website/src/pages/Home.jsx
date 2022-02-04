@@ -30,28 +30,32 @@ const Home = () => {
   }, []);
 
   return (
-    <div className='flex bg-fire-600 md:flex-row flex-col h-screen transaction-height duration-75 ease-out'>
+    <div className='flex bg-ash-200 md:flex-row flex-col h-screen transaction-height duration-75 ease-out'>
       <div className='hidden md:flex h-screen flex-initial'>
         <Sidebar user={user && user} />
       </div>
       <div className='flex md:hidden flex-row'>
-        <div className='p-2 w-full flex flex-row justify-between items-center shadow-md'>
+        <div className='p-2 w-full flex flex-row justify-between items-center shadow-md bg-ash-100'>
           <MenuIcon
-            className='cursor-pointer h-7 fill-fire-400'
+            className='cursor-pointer h-7 fill-ash-400'
             onClick={() => setToggleSidebar(true)}
           />
           <Link className='' to='/'>
-            <LogoIcon className='h-8 w-28' alt='logo' />
+            <LogoIcon className='h-10' alt='logo' />
           </Link>
           <Link className='' to={`profile/${user?._id}`}>
-            <img src={user?.image} alt='user' />
+            <img
+              src={user?.image}
+              alt='user'
+              className='h-10 w-10 rounded-full'
+            />
           </Link>
         </div>
         {toggleSidebar && (
           <div className='fixed w-4/5 bg-fire-700 h-screen overflow-y-auto shadow-md z-10 animate-slide-in'>
             <div className='absolute w-full flex justify-end items-center p-2'>
               <CloseIcon
-                className='cursor-pointer h-7 fill-fire-400'
+                className='cursor-pointer h-7 fill-ash-400'
                 onClick={() => setToggleSidebar(false)}
               />
             </div>

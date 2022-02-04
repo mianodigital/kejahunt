@@ -3,7 +3,7 @@ import GoogleLogin from 'react-google-login';
 import { useNavigate } from 'react-router-dom';
 
 import { ReactComponent as GoogleIcon } from '../assets/icons/google.svg';
-import { ReactComponent as Logo } from '../assets/icons/kh-white.svg';
+import logo from '../assets/images/kh-white.png';
 import loginBg from '../assets/images/login-bg.png';
 import { client } from '../sanity';
 
@@ -37,8 +37,20 @@ const Login = () => {
           className='w-full h-full object-cover'
         />
         <div className='absolute flex flex-col justify-center items-center top-0 right-0 left-0 bottom-0 bg-darkOverlay'>
-          <div className='p-5'>
-            <Logo alt='logo' width='320px' />
+          <div className=''>
+            <img src={logo} alt='logo' className='h-20' />
+          </div>
+          <div className='flex flex-col items-center p-10 text-center'>
+            <h2 className='text-ash-100  text-3xl py-1'>
+              Discover rental listings in your ideal location
+            </h2>
+            <p className='font-light text-xl py-1 text-ash-200'>
+              Reduce the hassle of physical property lookup
+            </p>
+            <p className='font-light text-xl text-ash-300 py-5'>
+              Are you a property owner or agent? <br /> Reach potential tenants
+              with instant feedback
+            </p>
           </div>
           <div className='shadow-xl'>
             <GoogleLogin
@@ -47,11 +59,11 @@ const Login = () => {
                 <button
                   onClick={renderProps.onClick}
                   type='button'
-                  className='bg-fire-500 flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none'
+                  className='bg-ash-400 flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none'
                   disabled={renderProps.disabled}
                 >
-                  <GoogleIcon className='mr-4 fill-fire-400 h-9' />
-                  <p className='text-fire-400'>Sign in with Google</p>
+                  <GoogleIcon className='mr-4 fill-ash-300 h-9' />
+                  <p className='text-ash-300 text-xl'>Sign in with Google</p>
                 </button>
               )}
               onSuccess={responseGoogle}

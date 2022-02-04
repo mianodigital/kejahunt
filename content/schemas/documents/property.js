@@ -19,6 +19,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'summary',
+      title: 'Summary',
+      type: 'string',
+    },
+    {
       name: 'image',
       title: 'Image',
       type: 'image',
@@ -29,6 +34,61 @@ export default {
     {
       name: 'category',
       title: 'Category',
+      type: 'string',
+    },
+    {
+      name: 'bathrooms',
+      title: 'Bathrooms',
+      type: 'string',
+    },
+    {
+      name: 'bedrooms',
+      title: 'Bedrooms',
+      type: 'string',
+    },
+    {
+      name: 'size',
+      title: 'Size - Sqft',
+      type: 'string',
+    },
+    {
+      name: 'features',
+      title: 'Features',
+      type: 'string',
+    },
+    {
+      name: 'location',
+      title: 'Location',
+      type: 'string',
+    },
+    {
+      name: 'county',
+      title: 'County',
+      type: 'string',
+    },
+    {
+      name: 'town',
+      title: 'Town',
+      type: 'Town',
+    },
+    {
+      name: 'estate',
+      title: 'Estate',
+      type: 'string',
+    },
+    {
+      name: 'price',
+      title: 'Price',
+      type: 'string',
+    },
+    {
+      name: 'deposit',
+      title: 'Deposit',
+      type: 'string',
+    },
+    {
+      name: 'extra',
+      title: 'Extra Costs',
       type: 'string',
     },
     {

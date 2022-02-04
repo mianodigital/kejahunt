@@ -3,18 +3,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        fire: {
-          100: '#F08F2D',
-          200: '#FE5F55',
-          300: '#E63462',
-          400: '#18203A',
-          500: '#F4FAFF',
-          600: '#EBF6FF',
-          700: '#D6EDFF',
+        ash: {
+          100: '#FFFFFF',
+          200: '#F6F7F8',
+          300: '#54F2F2',
+          400: '#531CB3',
+          500: '#DAFF7D',
+          600: '#6883BA',
+          700: '#1C2541',
+          800: '#0B132B',
         },
       },
       backgroundColor: {
-        darkOverlay: 'rgba(24, 32 ,58 ,0.7)',
+        darkOverlay: 'rgba(18, 24 ,43 ,0.7)',
       },
       fontFamily: {
         sans: ['Outfit', 'sans-serif'],
