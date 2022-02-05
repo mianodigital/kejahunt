@@ -3,7 +3,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 import createSchema from 'part:@sanity/base/schema-creator';
 
 import comment from './documents/comment';
-import property from './documents/property';
+import listing from './documents/listing';
 import save from './documents/save';
 import user from './documents/user';
 import postedBy from './objects/postedBy';
@@ -18,7 +18,7 @@ export default createSchema({
   types: schemaTypes.concat([
     /*Enter Your types here! */
     comment,
-    property,
+    listing,
     postedBy,
     save,
     user,

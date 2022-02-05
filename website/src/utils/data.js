@@ -5,25 +5,22 @@ export const userQuery = (userId) => {
 };
 
 export const searchQuery = (searchTerm) => {
-  const query = `*[_type == 'property' && title match '${searchTerm}*' || category match '${searchTerm}*' || about match '${searchTerm}*']{
+  const query = `*[_type == 'listing' && name match '${searchTerm}*' || category match '${searchTerm}*' || description match '${searchTerm}*']{
     image {
       asset -> {
         url
       }
     },
     _id,
+    title,
+    category,
     bathrooms,
     bedrooms,
-    size,
     county,
     town,
     estate,
-    price,
-    postedBy -> {
-      _id,
-      userName,
-      image
-    },
+    street,
+    rent,
     save[] {
       _key,
       postedBy -> {
@@ -37,24 +34,77 @@ export const searchQuery = (searchTerm) => {
   return query;
 };
 
-export const feedQuery = `*[_type == "property"] | order(_createdAt desc) {
-  image{
-    asset->{
-      url
-    }
+export const feedQuery = `*[_type == 'listing'] | order(_createdAt desc) {
+  image {
+  asset -> {
+  url
   },
-      _id,
-      postedBy->{
-        _id,
-        userName,
-        image
-      },
-      save[]{
-        _key,
-        postedBy->{
-          _id,
-          userName,
-          image
-        },
-      },
-    } `;
+  },
+title,
+about,
+bathrooms,
+bedrooms,
+category,
+size,
+rent,
+town,
+county,
+street,
+estate,
+userId,
+postedBy -> {
+  _id,
+  userName,
+  image,
+},
+save [] {
+  _key,
+  postedBy -> {
+  _id,
+  userName,
+  image,
+},
+},
+}`;
+
+export const categories = [
+  {
+    id: 0,
+    link: 'studio',
+    name: 'Studio | Bedsitter',
+  },
+  {
+    id: 1,
+    link: 'one-bedroom',
+    name: 'One Bedroom',
+  },
+  {
+    link: 'two-bedroom',
+    name: 'Two Bedroom',
+  },
+  {
+    id: 2,
+    link: 'three-bedroom',
+    name: 'Three Bedroom',
+  },
+  {
+    id: 3,
+    link: 'four-bedroom',
+    name: 'Four Bedroom',
+  },
+  {
+    id: 4,
+    link: 'family-homes',
+    name: 'Family Homes',
+  },
+  {
+    id: 5,
+    link: 'furnished',
+    name: 'Fully Furnished',
+  },
+  {
+    id: 6,
+    link: 'other',
+    name: 'Other',
+  },
+];

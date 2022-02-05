@@ -1,7 +1,7 @@
 import React from 'react';
 import Masonry from 'react-masonry-css';
 
-import Property from './Property';
+import Listing from './Listing';
 
 const breakpointObj = {
   default: 4,
@@ -12,11 +12,11 @@ const breakpointObj = {
   500: 1,
 };
 
-const MasonryLayout = ({ properties }) => {
+const MasonryLayout = ({ listings }) => {
   return (
     <Masonry className='flex animate-slide-fwd' breakpointCols={breakpointObj}>
-      {properties?.map((property) => (
-        <Property key={property._id} property={property} className='w-max' />
+      {listings?.map((listing) => (
+        <Listing key={listing._id} listing={listing} className='w-max' />
       ))}
     </Masonry>
   );

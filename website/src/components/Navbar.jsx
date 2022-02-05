@@ -24,7 +24,7 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
       </div>
       <div className='flex gap-3'>
         <Link
-          to='/create-property'
+          to='/create-listing'
           className='bg-ash-400 text-white rounded-lg w-12 h-12 md:w-14 md:h-12 flex justify-center items-center'
         >
           <AddIcon className='h-5 w-5 fill-white' />

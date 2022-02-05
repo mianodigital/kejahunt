@@ -7,7 +7,7 @@ import { feedQuery, searchQuery } from '../utils/data';
 
 const Feed = () => {
   const [loading, setLoading] = useState(false);
-  const [properties, setProperties] = useState();
+  const [listings, setListings] = useState();
   const { categoryId } = useParams();
 
   useEffect(() => {
@@ -16,19 +16,19 @@ const Feed = () => {
     if (categoryId) {
       const query = searchQuery(categoryId);
       client.fetch(query).then((data) => {
-        setProperties(data);
+        setListings(data);
         setLoading(false);
       });
     } else {
       client.fetch(feedQuery).then((data) => {
-        setProperties(data);
+        setListings(data);
         setLoading(false);
       });
     }
   }, [categoryId]);
 
   if (loading) return <Spinner message='Preparing listings for you' />;
-  return <div>{properties && <MasonryLayout properties={properties} />}</div>;
+  return <div>{listings && <MasonryLayout listings={listings} />}</div>;
 };
 
 export default Feed;

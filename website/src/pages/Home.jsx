@@ -7,7 +7,7 @@ import { ReactComponent as MenuIcon } from '../assets/icons/menu.svg';
 import { Profile, Sidebar } from '../components';
 import { client } from '../sanity';
 import { userQuery } from '../utils/data';
-import Properties from './Properties';
+import Listings from './Listings';
 
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
@@ -67,7 +67,7 @@ const Home = () => {
       <div className='pb-2 flex-1 h-screen overflow-y-scroll' ref={scrollRef}>
         <Routes>
           <Route path='/profile/:userId' element={<Profile />} />
-          <Route path='/*' element={<Properties user={user && user} />} />
+          <Route path='/*' element={<Listings user={user && user} />} />
         </Routes>
       </div>
     </div>

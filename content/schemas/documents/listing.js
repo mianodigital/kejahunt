@@ -1,6 +1,6 @@
 export default {
-  name: 'property',
-  title: 'Property',
+  name: 'listing',
+  title: 'Listing',
   type: 'document',
   fields: [
     {
@@ -14,15 +14,16 @@ export default {
       type: 'string',
     },
     {
+      name: 'category',
+      title: 'Category',
+      type: 'string',
+    },
+    {
       name: 'description',
       title: 'Description',
       type: 'string',
     },
-    {
-      name: 'summary',
-      title: 'Summary',
-      type: 'string',
-    },
+
     {
       name: 'image',
       title: 'Image',
@@ -32,8 +33,8 @@ export default {
       },
     },
     {
-      name: 'category',
-      title: 'Category',
+      name: 'bedrooms',
+      title: 'Bedrooms',
       type: 'string',
     },
     {
@@ -41,14 +42,10 @@ export default {
       title: 'Bathrooms',
       type: 'string',
     },
-    {
-      name: 'bedrooms',
-      title: 'Bedrooms',
-      type: 'string',
-    },
+
     {
       name: 'size',
-      title: 'Size - Sqft',
+      title: 'Size - SqFt',
       type: 'string',
     },
     {
@@ -57,8 +54,13 @@ export default {
       type: 'string',
     },
     {
-      name: 'location',
-      title: 'Location',
+      name: 'amenities',
+      title: 'Amenities',
+      type: 'string',
+    },
+    {
+      name: 'geolocation',
+      title: 'Geolocation',
       type: 'string',
     },
     {
@@ -77,8 +79,13 @@ export default {
       type: 'string',
     },
     {
-      name: 'price',
-      title: 'Price',
+      name: 'street',
+      title: 'Street',
+      type: 'string',
+    },
+    {
+      name: 'rent',
+      title: 'Rent',
       type: 'string',
     },
     {
@@ -87,8 +94,13 @@ export default {
       type: 'string',
     },
     {
-      name: 'extra',
+      name: 'extraCosts',
       title: 'Extra Costs',
+      type: 'string',
+    },
+    {
+      name: 'phoneNo',
+      title: 'Phone Number',
       type: 'string',
     },
     {

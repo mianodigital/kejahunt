@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { CreateProperty, Feed, Navbar, PropertyDetail, Search } from '../components';
+import { CreateListing, Feed, ListingDetail, Navbar, Search } from '../components';
 
 const Properties = ({ user }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -19,12 +19,12 @@ const Properties = ({ user }) => {
           <Route path='/' element={<Feed />} />
           <Route path='/category/:categoryId' element={<Feed />} />
           <Route
-            path='/property-detail/:propertyId'
-            element={<PropertyDetail user={user} />}
+            path='/listing-detail/:listingId'
+            element={<ListingDetail user={user} />}
           />
           <Route
-            path='/create-property'
-            element={<CreateProperty user={user} />}
+            path='/create-listing'
+            element={<CreateListing user={user} />}
           />
           <Route
             path='/search'

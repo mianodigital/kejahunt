@@ -2,21 +2,12 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 import logo from '../assets/images/kh.png';
+import { categories } from '../utils/data';
 
 const isNotActiveStyle =
   'flex items-center px-5 gap-2 text-ash-700 hover:text-ash-400 transition-all duration-200 ease-in-out capitalize';
 const isActiveStyle =
   'flex items-center px-5 gap-2 text-ash-400 font-medium border-r-2 border-ash-400 transition-all duration-200 ease-in-out capitalize';
-
-const categories = [
-  { name: 'studio', title: 'Studio / Bedsitter' },
-  { name: 'one-bedroom', title: '1+ Bedroom' },
-  { name: 'two-bedroom', title: '2+ Bedroom' },
-  { name: 'three-bedroom', title: '3+ Bedroom' },
-  { name: 'four-bedroom', title: '4+ Bedroom' },
-  { name: 'single-family-homes', title: 'Single Family' },
-  { name: 'other', title: 'Other' },
-];
 
 const Sidebar = ({ user, closeToggle }) => {
   const handleCloseSidebar = () => {
@@ -43,18 +34,18 @@ const Sidebar = ({ user, closeToggle }) => {
             Home
           </NavLink>
           <h3 className='text-ash-400 mt-2 px-5 text-base font-medium 2xl:text-xl'>
-            Discover Categories
+            Explore Categories
           </h3>
           {categories.slice(0, categories.length - 1).map((category) => (
             <NavLink
-              to={`/category/${category.name}`}
+              to={`/category/${category.link}`}
               className={({ isActive }) =>
                 isActive ? isActiveStyle : isNotActiveStyle
               }
               onClick={handleCloseSidebar}
               key={category.name}
             >
-              {category.title}
+              {category.name.split('Apartments')}
             </NavLink>
           ))}
         </div>
