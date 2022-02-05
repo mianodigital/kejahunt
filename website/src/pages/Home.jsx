@@ -52,7 +52,7 @@ const Home = () => {
           </Link>
         </div>
         {toggleSidebar && (
-          <div className='fixed w-4/5 bg-fire-700 h-screen overflow-y-auto shadow-md z-10 animate-slide-in'>
+          <div className='fixed w-4/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in'>
             <div className='absolute w-full flex justify-end items-center p-2'>
               <CloseIcon
                 className='cursor-pointer h-7 fill-ash-400'

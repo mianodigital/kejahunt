@@ -69,7 +69,7 @@ export default {
     {
       name: 'town',
       title: 'Town',
-      type: 'Town',
+      type: 'string',
     },
     {
       name: 'estate',
