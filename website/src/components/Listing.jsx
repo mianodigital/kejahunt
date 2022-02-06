@@ -117,7 +117,7 @@ const Listing = ({ listing }) => {
             </div>
             <div className=' flex justify-between items-center gap-2 w-full'>
               <p className='bg-white flex items-center text-black text-sm font-medium py-1 px-4 rounded-full opacity-70 hover:opacity-100 hover:shadow-md'>
-                {town}, {county}
+                {town}, {street}
               </p>
               {postedBy?._id === user?.googleId && (
                 <button
@@ -152,7 +152,7 @@ const Listing = ({ listing }) => {
         <div className='flex flex-col'>
           <p className='text-base font-semibold text-ash-800'>{title}</p>
           <p className='text-sm text-ash-700'>
-            {street}, {estate}
+            {estate}, {county}
           </p>
         </div>
       </div>

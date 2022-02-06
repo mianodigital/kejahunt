@@ -15,7 +15,7 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
         <SearchIcon className='ml-1 h-5 w-5 fill-ash-400' />
         <input
           type='text'
-          className='p-2 w-full bg-white outline-none'
+          className='p-2 w-full bg-white outline-none placeholder:text-ash-700'
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder='Search'
           value={searchTerm}

@@ -4,10 +4,8 @@ import Masonry from 'react-masonry-css';
 import Listing from './Listing';
 
 const breakpointObj = {
-  default: 4,
-  3000: 6,
-  2000: 5,
-  1200: 3,
+  default: 3,
+  1200: 4,
   1000: 2,
   500: 1,
 };

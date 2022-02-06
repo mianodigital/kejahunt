@@ -5,13 +5,24 @@ module.exports = {
       colors: {
         ash: {
           100: '#FFFFFF',
-          200: '#F6F7F8',
+          200: '#f9f7ff',
           300: '#54F2F2',
           400: '#531CB3',
           500: '#DAFF7D',
           600: '#6883BA',
           700: '#1C2541',
           800: '#0B132B',
+        },
+        ghost: {
+          100: '#E7DCF9',
+          200: '#B795EE',
+          300: '#9E72E9',
+          400: '#793DE1',
+          500: '#531CB3',
+          600: '#4A199F',
+          700: '#3A137C',
+          800: '#290E58',
+          900: '#190835',
         },
       },
       backgroundColor: {
@@ -98,3 +109,5 @@ module.exports = {
   },
   plugins: [require(`tailwind-scrollbar-hide`)],
 };
+
+// require('@tailwindcss/forms');
