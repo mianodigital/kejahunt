@@ -52,6 +52,7 @@ county,
 street,
 estate,
 userId,
+_id,
 postedBy -> {
   _id,
   userName,
@@ -66,6 +67,100 @@ save [] {
 },
 },
 }`;
+
+export const listingDetailQuery = (listingId) => {
+  const query = `*[_type == "listing" && _id == '${listingId}']{
+    image{
+      asset->{
+        url
+      }
+    },
+    _id,
+    title,
+    phoneNo,
+    about,
+    category,
+    description,
+    features,
+    amenities,
+    bathrooms,
+    bedrooms,
+    size,
+    geolocation,
+    town,
+    county,
+    street,
+    estate,
+    deposit,
+    rent,
+    extraCosts,
+    postedBy->{
+      _id,
+      userName,
+      image
+    },
+   save[]{
+      postedBy->{
+        _id,
+        userName,
+        image
+      },
+    },
+    comments[]{
+      comment,
+      _key,
+      postedBy->{
+        _id,
+        userName,
+        image
+      },
+    }
+  }`;
+  return query;
+};
+
+export const listingDetailMoreQuery = (listing) => {
+  const query = `*[_type == "pin" && category == '${listing.category}' && _id != '${listing._id}' ]{
+    image{
+      asset->{
+        url
+      }
+    },
+    _id,
+    title,
+    phoneNo,
+    about,
+    category,
+    description,
+    features,
+    amenities,
+    bathrooms,
+    bedrooms,
+    size,
+    geolocation,
+    town,
+    county,
+    street,
+    estate,
+    deposit,
+    rent,
+    extraCosts,
+    postedBy->{
+      _id,
+      userName,
+      image
+    },
+    save[]{
+      _key,
+      postedBy->{
+        _id,
+        userName,
+        image
+      },
+    },
+  }`;
+  return query;
+};
 
 export const categories = [
   {
