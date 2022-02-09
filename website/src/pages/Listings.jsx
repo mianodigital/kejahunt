@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import { CreateListing, Feed, ListingDetail, Navbar, Search } from '../components';
 
-const Properties = ({ user }) => {
+const Listings = ({ user }) => {
   const [searchTerm, setSearchTerm] = useState('');
   return (
     <div className='px-2 md:px-5'>
@@ -38,4 +38,4 @@ const Properties = ({ user }) => {
   );
 };
 
-export default Properties;
+export default Listings;

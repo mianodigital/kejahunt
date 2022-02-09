@@ -6,6 +6,7 @@ import { ReactComponent as BathIcon } from '../assets/icons/bath.svg';
 import { ReactComponent as BedIcon } from '../assets/icons/bed.svg';
 import { ReactComponent as DeleteIcon } from '../assets/icons/delete.svg';
 import { ReactComponent as DownloadIcon } from '../assets/icons/download.svg';
+import { ReactComponent as SizeIcon } from '../assets/icons/size.svg';
 import { client, urlFor } from '../sanity';
 
 const Listing = ({ listing }) => {
@@ -16,12 +17,14 @@ const Listing = ({ listing }) => {
     image,
     _id,
     title,
+    category,
     bedrooms,
     bathrooms,
-    street,
+    county,
     town,
     estate,
-    county,
+    street,
+    size,
     rent,
     postedBy,
   } = listing;
@@ -68,7 +71,7 @@ const Listing = ({ listing }) => {
 
   return (
     <div
-      className='m-2 bg-ash-100 rounded-lg cursor-pointer overflow-hidden'
+      className='m-2 bg-ash-100 rounded-lg cursor-pointer shadow-sm overflow-hidden group'
       onMouseEnter={() => setPostHovered(true)}
       onMouseLeave={() => setPostHovered(false)}
       onClick={() => navigate(`/listing-detail/${_id}`)}
@@ -77,7 +80,7 @@ const Listing = ({ listing }) => {
         <img
           src={urlFor(image).width(240).url()}
           alt='user'
-          className='w-full'
+          className='w-full object-cover transition-transform duration-200 ease-in-out group-hover:scale-105'
         />
         {postHovered && (
           <div
@@ -90,9 +93,9 @@ const Listing = ({ listing }) => {
                   href={`${image?.asset?.url}?dl=`}
                   download
                   onClick={(e) => e.stopPropagation()}
-                  className='bg-white w-9 h-9 rounded-md flex items-center justify-center text-dark text-xl opacity-75 hover:opacity-100 hover:shadow-md outline-none'
+                  className='bg-white w-8 h-8 rounded-md flex items-center justify-center text-dark text-xl opacity-75 hover:opacity-100 hover:shadow-md outline-none'
                 >
-                  <DownloadIcon className='h-4 w-5' />
+                  <DownloadIcon className='h-5 w-5 fill-ash-400' />
                 </a>
               </div>
               {alreadySaved?.length !== 0 ? (
@@ -105,7 +108,7 @@ const Listing = ({ listing }) => {
               ) : (
                 <button
                   type='button'
-                  className='bg-ash-400 text-ash-200 font-medium px-5 py-1 text-sm rounded-3xl opacity-80 hover:opacity-100 hover:shadow-md outline-none'
+                  className='bg-ash-400 text-ash-100 font-light px-5 py-1 text-md rounded-3xl opacity-90 hover:opacity-100 hover:shadow-md outline-none'
                   onClick={(e) => {
                     e.stopPropagation();
                     saveListing(_id);
@@ -116,8 +119,8 @@ const Listing = ({ listing }) => {
               )}
             </div>
             <div className=' flex justify-between items-center gap-2 w-full'>
-              <p className='bg-white flex items-center text-black text-sm font-medium py-1 px-4 rounded-full opacity-70 hover:opacity-100 hover:shadow-md'>
-                {town}, {street}
+              <p className='bg-ash-300 flex items-center text-black text-sm font-medium py-1 px-4 rounded-full opacity-80 hover:opacity-100 hover:shadow-md'>
+                {town}, {county}
               </p>
               {postedBy?._id === user?.googleId && (
                 <button
@@ -128,7 +131,7 @@ const Listing = ({ listing }) => {
                   }}
                   className='bg-white p-2 rounded-full w-8 h-8 flex items-center justify-center text-dark opacity-75 hover:opacity-100 outline-none'
                 >
-                  <DeleteIcon className='h-5 w-5 fill-ash-400' />
+                  <DeleteIcon className='h-5 w-5 fill-red-600' />
                 </button>
               )}
             </div>
@@ -137,7 +140,7 @@ const Listing = ({ listing }) => {
       </div>
       <div className='flex flex-col gap-1 mt-2 px-2 pb-5'>
         <div className='flex items-center gap-2 justify-between'>
-          <p className='text-xl font-bold text-ash-400'>{rent} / mo</p>
+          <p className='text-xl font-bold text-ash-400'>KES {rent} / mo</p>
           <div className='flex gap-4'>
             <div className='flex items-center gap-1'>
               <BedIcon className='h-5 w-5 fill-ash-400' />
@@ -149,11 +152,18 @@ const Listing = ({ listing }) => {
             </div>
           </div>
         </div>
-        <div className='flex flex-col'>
+        <div className='flex items-center gap-2 justify-between'>
           <p className='text-base font-semibold text-ash-800'>{title}</p>
-          <p className='text-sm text-ash-700'>
-            {estate}, {county}
+          <div className='flex items-center gap-1'>
+            <SizeIcon className='h-4 w-4 fill-ash-400' />
+            <p className='text-md font-bold text-ash-800'>{size} SqFt</p>
+          </div>
+        </div>
+        <div className='flex items-center gap-2 justify-between'>
+          <p className='text-sm  text-ash-700'>
+            {street}, {estate}
           </p>
+          <p className='text-sm font-medium text-ash-700'>{category}</p>
         </div>
       </div>
     </div>

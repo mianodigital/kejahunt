@@ -28,6 +28,12 @@ const Feed = () => {
   }, [categoryId]);
 
   if (loading) return <Spinner message='Preparing listings for you' />;
+  if (!listings?.length)
+    return (
+      <h2 className='font-bold flex justify-center items-center text-ash-700'>
+        No listings available
+      </h2>
+    );
   return <div>{listings && <MasonryLayout listings={listings} />}</div>;
 };
 

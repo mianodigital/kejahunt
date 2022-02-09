@@ -62,8 +62,8 @@ const Login = () => {
                   className='bg-ash-400 flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none'
                   disabled={renderProps.disabled}
                 >
-                  <GoogleIcon className='mr-4 fill-ash-300 h-9' />
-                  <p className='text-ash-300 text-xl'>Sign in with Google</p>
+                  <GoogleIcon className='mr-4 fill-ash-200 h-9' />
+                  <p className='text-ash-200 text-xl'>Sign in with Google</p>
                 </button>
               )}
               onSuccess={responseGoogle}

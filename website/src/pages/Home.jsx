@@ -11,7 +11,7 @@ import Listings from './Listings';
 
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState();
   const userInfo =
     localStorage.getItem('user') !== 'undefined'
       ? JSON.parse(localStorage.getItem('user'))

@@ -8,7 +8,7 @@ import { categories } from '../utils/data';
 import Spinner from './Spinner';
 
 const ph =
-  'outline-none text-base sm:text-lg border-b-2 border-ash-400 p-2 placeholder:text-ash-700 text-ash-800 w-auto';
+  'outline-none text-light sm:text-lg border-b-2 border-ghost-200 p-2 placeholder:text-ash-700 placeholder:text-light text-ash-700 w-auto';
 
 const CreateListing = ({ user }) => {
   // Listing states
@@ -32,10 +32,10 @@ const CreateListing = ({ user }) => {
 
   // Other states
   const [loading, setLoading] = useState(false);
-  const [fields, setFields] = useState(null);
-  const [category, setCategory] = useState(null);
-  const [imageAsset, setImageAsset] = useState(null);
-  const [wrongimageType, setWrongImageType] = useState(null);
+  const [fields, setFields] = useState();
+  const [category, setCategory] = useState();
+  const [imageAsset, setImageAsset] = useState();
+  const [wrongimageType, setWrongImageType] = useState(false);
 
   const navigate = useNavigate();
 
@@ -105,6 +105,7 @@ const CreateListing = ({ user }) => {
         county,
         town,
         estate,
+        street,
         rent,
         deposit,
         extraCosts,
@@ -179,7 +180,7 @@ const CreateListing = ({ user }) => {
                   type='button'
                   className='bg-ash-100 absolute bottom-3 right-3 p-3 rounded-full text-xl cursor-pointer outline-none hover:shadow-md transition-all duration-500 ease-in-out'
                 >
-                  <DeleteIcon className='h-5 w-5 fill-ash-400' />
+                  <DeleteIcon className='h-5 w-5 fill-red-500' />
                 </button>
               </div>
             )}
@@ -208,8 +209,7 @@ const CreateListing = ({ user }) => {
                 className={`${ph}`}
               />
             </div>
-            <input
-              type='text'
+            <textarea
               value={about}
               onChange={(e) => setAbout(e.target.value)}
               placeholder='Short description'
@@ -223,7 +223,7 @@ const CreateListing = ({ user }) => {
             </p>
             <select
               onChange={(e) => setCategory(e.target.value)}
-              className='outline-none w-[90%] text-lg border-b-2 text-ash-700 border-ghost-500 p-2 cursor-pointer'
+              className='outline-none w-[90%] text-lg border-b-2 text-ash-700 border-ghost-200 p-2 cursor-pointer'
               name=''
               id=''
             >
@@ -275,23 +275,20 @@ const CreateListing = ({ user }) => {
             <h3 className='mb-2 font-semibold text-lg sm:text-xl text-ash-400'>
               Further Information
             </h3>
-            <div className='flex flex-wrap gap-5'>
-              <input
-                type='text'
+            <div className='flex flex-col flex-wrap gap-5'>
+              <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder='Detailed description'
                 className={`${ph}`}
               />
-              <input
-                type='text'
+              <textarea
                 value={features}
                 onChange={(e) => setFeatures(e.target.value)}
                 placeholder='Features'
                 className={`${ph}`}
               />
-              <input
-                type='text'
+              <textarea
                 value={amenities}
                 onChange={(e) => setAmenities(e.target.value)}
                 placeholder='Amenities'
