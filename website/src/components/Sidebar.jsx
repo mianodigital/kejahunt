@@ -45,7 +45,7 @@ const Sidebar = ({ user, closeToggle }) => {
               onClick={handleCloseSidebar}
               key={category.name}
             >
-              {category.name.split('Apartments')}
+              {category.name}
             </NavLink>
           ))}
         </div>

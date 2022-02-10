@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import { client } from '../sanity';
 import { feedQuery, searchQuery } from '../utils/data';
+import Map from './Map';
 import MasonryLayout from './MasonryLayout';
 import Spinner from './Spinner';
 
@@ -28,7 +29,12 @@ const Search = ({ searchTerm }) => {
   return (
     <div>
       {loading && <Spinner message='loading properties' />}
-      {listings?.length !== 0 && <MasonryLayout listings={listings} />}
+      {listings?.length !== 0 && (
+        <div className=''>
+          <Map listings={listings} />
+          <MasonryLayout listings={listings} />
+        </div>
+      )}
       {listings?.length === 0 && searchTerm !== '' && !loading && (
         <div className='mt-1 text-center text-xl'>No pins found</div>
       )}

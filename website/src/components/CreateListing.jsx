@@ -5,6 +5,7 @@ import { ReactComponent as DeleteIcon } from '../assets/icons/delete.svg';
 import { ReactComponent as UploadIcon } from '../assets/icons/upload.svg';
 import { client } from '../sanity';
 import { categories } from '../utils/data';
+import CreateMap from './CreateMap';
 import Spinner from './Spinner';
 
 const ph =
@@ -20,9 +21,9 @@ const CreateListing = ({ user }) => {
   const [size, setSize] = useState('');
   const [features, setFeatures] = useState('');
   const [amenities, setAmenities] = useState('');
-  const [geolocation, setGeolocation] = useState('');
   const [county, setCounty] = useState('');
   const [town, setTown] = useState('');
+  const [location, setLocation] = useState('');
   const [estate, setEstate] = useState('');
   const [street, setStreet] = useState('');
   const [rent, setRent] = useState('');
@@ -80,8 +81,8 @@ const CreateListing = ({ user }) => {
       size &&
       features &&
       amenities &&
-      geolocation &&
       county &&
+      location &&
       town &&
       estate &&
       street &&
@@ -101,7 +102,6 @@ const CreateListing = ({ user }) => {
         size,
         features,
         amenities,
-        geolocation,
         county,
         town,
         estate,
@@ -110,6 +110,7 @@ const CreateListing = ({ user }) => {
         deposit,
         extraCosts,
         phoneNo,
+        location,
         image: {
           _type: 'image',
           asset: {
@@ -140,8 +141,8 @@ const CreateListing = ({ user }) => {
           Please fill in all fields
         </p>
       )}
-      <div className='flex lg:flex-row flex-col justify-center items-start bg-white lg:p-5 p-3 w-full rounded-lg'>
-        <div className='bg-ash-200 p-3 flex items-start w-full lg:w-2/5 rounded-lg'>
+      <div className='flex flex-col justify-center items-start bg-white lg:p-5 p-3 w-full rounded-lg'>
+        <div className='bg-ash-200 p-3 flex items-start w-full rounded-lg'>
           <div className='flex justify-center items-center flex-col border-2 border-dashed border-ash-700 p-3 w-full h-420  rounded-lg'>
             {loading && <Spinner />}
             {wrongimageType && <p>Wrong image type</p>}
@@ -187,7 +188,7 @@ const CreateListing = ({ user }) => {
           </div>
         </div>
         {/* Form */}
-        <div className='flex flex-col lg:w-3/5 w-full'>
+        <div className='flex flex-col w-full'>
           {/* Main Title */}
           <div className=' flex flex-col gap-2 mx-5 py-2'>
             <h2 className='mb-2 font-semibold text-lg sm:text-xl text-ash-400'>
@@ -246,7 +247,7 @@ const CreateListing = ({ user }) => {
             <h3 className='mb-2 font-semibold text-lg sm:text-xl text-ash-400'>
               Dimensions & Capacity
             </h3>
-            <div className='flex gap-5 mx-auto flex-wrap'>
+            <div className='flex gap-5 flex-wrap'>
               <input
                 type='text'
                 value={bedrooms}
@@ -265,7 +266,7 @@ const CreateListing = ({ user }) => {
                 type='text'
                 value={size}
                 onChange={(e) => setSize(e.target.value)}
-                placeholder='Size in SqFt'
+                placeholder='Size in sqft'
                 className={`${ph}`}
               />
             </div>
@@ -302,13 +303,7 @@ const CreateListing = ({ user }) => {
               Location Information
             </h3>
             <div className='flex flex-wrap gap-5'>
-              <input
-                type='text'
-                value={geolocation}
-                onChange={(e) => setGeolocation(e.target.value)}
-                placeholder='Geolocation'
-                className={`${ph}`}
-              />
+              <CreateMap />
               <input
                 type='text'
                 value={county}

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { MasonryLayout, Spinner } from '../components';
 import { client } from '../sanity';
 import { feedQuery, searchQuery } from '../utils/data';
+import Map from './Map';
 
 const Feed = () => {
   const [loading, setLoading] = useState(false);
@@ -34,7 +35,16 @@ const Feed = () => {
         No listings available
       </h2>
     );
-  return <div>{listings && <MasonryLayout listings={listings} />}</div>;
+  return (
+    <div>
+      {listings && (
+        <div className=''>
+          <Map listings={listings} />
+          <MasonryLayout listings={listings} />
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default Feed;

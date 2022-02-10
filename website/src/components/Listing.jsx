@@ -120,7 +120,7 @@ const Listing = ({ listing }) => {
             </div>
             <div className=' flex justify-between items-center gap-2 w-full'>
               <p className='bg-ash-300 flex items-center text-black text-sm font-medium py-1 px-4 rounded-full opacity-80 hover:opacity-100 hover:shadow-md'>
-                {town}, {county}
+                {street}, {town}
               </p>
               {postedBy?._id === user?.googleId && (
                 <button
@@ -156,12 +156,12 @@ const Listing = ({ listing }) => {
           <p className='text-base font-semibold text-ash-800'>{title}</p>
           <div className='flex items-center gap-1'>
             <SizeIcon className='h-4 w-4 fill-ash-400' />
-            <p className='text-md font-bold text-ash-800'>{size} SqFt</p>
+            <p className='text-md font-bold text-ash-800'>{size} sqft</p>
           </div>
         </div>
         <div className='flex items-center gap-2 justify-between'>
           <p className='text-sm  text-ash-700'>
-            {street}, {estate}
+            {estate}, {county}
           </p>
           <p className='text-sm font-medium text-ash-700'>{category}</p>
         </div>

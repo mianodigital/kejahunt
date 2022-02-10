@@ -3,6 +3,7 @@ export { default as Profile } from './Profile';
 export { default as Navbar } from './Navbar';
 export { default as Feed } from './Feed';
 export { default as Listing } from './Listing';
+export { default as Map } from './Map';
 export { default as ListingDetail } from './ListingDetail';
 export { default as CreateListing } from './CreateListing';
 export { default as Search } from './Search';

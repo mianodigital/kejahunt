@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { client, urlFor } from '../sanity';
 import { listingDetailMoreQuery, listingDetailQuery } from '../utils/data';
+import ListingMap from './ListingMap';
 import MasonryLayout from './MasonryLayout';
 import Spinner from './Spinner';
 
@@ -74,7 +75,7 @@ const ListingDetail = ({ user }) => {
               className='rounded-t-3xl rounded-b-lg'
             />
           </div>
-          <div className='md:w-[60%] w-full-height p-5'>
+          <div className='md:w-full p-5'>
             {/* Basic Information */}
             <div className='flex items-center justify-between'>
               <p className='text-4xl font-bold break-words mt-3 text-ash-400'>
@@ -117,13 +118,18 @@ const ListingDetail = ({ user }) => {
                 <p className=''>
                   {listingDetail.town}, {listingDetail.county}
                 </p>
-                <p className=''>{listingDetail.size} SqFt</p>
+                <p className=''>{listingDetail.size} sqft</p>
               </div>
             </div>
+            {/* Map Information */}
+            <div className='mt-5'>
+              <h1 className='text-xl font-bold break-words m-3'>Map</h1>
+              <ListingMap location={listingDetail.location} />
+            </div>
 
-            {/* More Information */}
+            {/* Detailed Information */}
             <div>
-              <div className=''>
+              <div className='mt-7'>
                 <h1 className='text-xl font-bold break-words mt-3'>
                   Description
                 </h1>
@@ -207,14 +213,14 @@ const ListingDetail = ({ user }) => {
         </div>
       )}
       {listings?.length > 0 && (
-        <h2 className='text-center font-bold text-2x mt-8 mb-5'>
+        <h2 className='text-center font-bold text-ash-400 text-2xl mt-8 mb-4'>
           More like this
         </h2>
       )}
       {listings ? (
         <MasonryLayout listings={listings} />
       ) : (
-        <Spinner message='Loading more listings...' />
+        <Spinner message='Loading more pins' />
       )}
     </>
   );

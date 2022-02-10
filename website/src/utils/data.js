@@ -47,7 +47,7 @@ export const userQuery = (userId) => {
 };
 
 export const searchQuery = (searchTerm) => {
-  const query = `*[_type == 'listing' && name match '${searchTerm}*' || category match '${searchTerm}*' || about match '${searchTerm}*' || title match '${searchTerm}*' || town match '${searchTerm}*' || county match '${searchTerm}*' || estate match '${searchTerm}*' || street match '${searchTerm}*' || bathrooms match '${searchTerm}*' || bedrooms match '${searchTerm}*' || rent match '${searchTerm}*' || description match '${searchTerm}*']{
+  const query = `*[_type == 'listing' && name match '${searchTerm}*' || category match '${searchTerm}*' || about match '${searchTerm}*' || title match '${searchTerm}*' || town match '${searchTerm}*' || county match '${searchTerm}*' || estate match '${searchTerm}*' || street match '${searchTerm}*' || bathrooms match '${searchTerm}*' || bedrooms match '${searchTerm}*' || rent match '${searchTerm}*' || description match '${searchTerm}*' || location match '${searchTerm}*']{
     image {
       asset -> {
         url
@@ -58,6 +58,7 @@ export const searchQuery = (searchTerm) => {
     category,
     bathrooms,
     bedrooms,
+    location,
     county,
     town,
     estate,
@@ -79,6 +80,11 @@ export const searchQuery = (searchTerm) => {
   return query;
 };
 
+export const mapQuery = `*[_type == 'listing']{
+  _id,
+location,  
+}`;
+
 export const feedQuery = `*[_type == 'listing'] | order(_createdAt desc) {
   image {
   asset -> {
@@ -93,6 +99,7 @@ bedrooms,
 category,
 size,
 rent,
+location,
 town,
 county,
 street,
@@ -130,9 +137,9 @@ export const listingDetailQuery = (listingId) => {
     features,
     amenities,
     bathrooms,
-    bedrooms,
+    bedrooms, 
     size,
-    geolocation,
+    location,
     town,
     county,
     street,
@@ -183,7 +190,7 @@ export const listingDetailMoreQuery = (listing) => {
     bathrooms,
     bedrooms,
     size,
-    geolocation,
+    location,
     town,
     county,
     street,
@@ -226,7 +233,6 @@ export const userCreatedListingsQuery = (userId) => {
     bathrooms,
     bedrooms,
     size,
-    geolocation,
     town,
     county,
     street,
@@ -268,7 +274,6 @@ export const userSavedListingsQuery = (userId) => {
     bathrooms,
     bedrooms,
     size,
-    geolocation,
     town,
     county,
     street,

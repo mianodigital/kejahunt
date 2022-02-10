@@ -59,9 +59,9 @@ export default {
       type: 'string',
     },
     {
-      name: 'geolocation',
-      title: 'Geolocation',
-      type: 'string',
+      name: 'location',
+      title: 'Location',
+      type: 'geopoint',
     },
     {
       name: 'county',

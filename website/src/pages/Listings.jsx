@@ -14,7 +14,7 @@ const Listings = ({ user }) => {
           user={user && user}
         />
       </div>
-      <div className='h-full'>
+      <div className='h-full w-full'>
         <Routes>
           <Route path='/' element={<Feed />} />
           <Route path='/category/:categoryId' element={<Feed />} />
